@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>Payment Process</title>
+<head>
+<script type="text/JavaScript">
+$(document).ready(function() {
+$('#username').blur(function() {
+        var param = "contactname=" +$(this).val();
+$.ajax({
+  type: "POST"
+  dataType: "json",
+  url: '/ajax',
+  data: param,
+    success: function(result) {
+        alert("hai");
+    }
+});
+});
+});
+</script>
+</head>
+<body>
+	<%= puts "kanna" + "#{@paym.inspect}"%>
+	<%= form_for(@paym) do |f| %>
+  
+	<%= puts "biran" + "#{@paym.MobileNo}"%>
+	<table width="50%">
+	<tr><td colspan=2><h1>Payment Process</h1></td></tr>
+	<tr>
+	<td><%= f.label :Name %></td>  
+	<% if @paym.Name? %>
+	<td><%= f.text_field :Name, :autofocus => true, :id => "username",:value => @paym.Name %>
+</td>
+	<% else %>
+	<td><%= f.text_field :Name, :autofocus => true, :id => "username" %>
+</td>
+	<% end %>
+	</tr>
+	<tr>
+	<td><%= f.label :MobileNo   %></td>
+	<td>  
+
+	<%= f.text_field :MobileNo,:id => "mob" %></td>
+	</tr>
+  
+	<tr>
+	<td><%= f.label :Emailid %></td>
+	<td>  
+
+	<%= f.text_field :Emailid %></td>
+	</tr>
+  
+	<tr>
+	<td><%= f.label :VenueName %></td>
+	<td>  
+	<%= f.select :VenueName,options_from_collection_for_select(Enquiry.all, :VenueName, :VenueName), {}, :onchange => 'alert("hello"+ this.value);' %>
+</td>
+	</tr>  
+	<tr>
+	<td><%= f.label :Location %></td>
+	<td>  
+	<%= f.text_field :Location, :readonly =>true %>
+</td>
+	</tr>  
+	<tr>
+	<td><%= f.label :Capacity %></td>
+	<td>  
+	<%= f.text_field :Capacity, :readonly =>true %>
+</td>
+	</tr>  
+	<tr>
+	<td><%= f.label :cost %></td>
+	<td>  
+	<%= f.text_field :cost, :readonly =>true %>
+</td>
+	</tr>  
+	<tr>
+	<td colspan=2 align="center"><%= f.submit "Proceed & Payment" %></td>
+	</tr>
+ 
+	</tr>
+	</table>
+<% end %>
+</body>
+</html>

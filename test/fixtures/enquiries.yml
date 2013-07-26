@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  VenueName: MyString
+  : MyString
+  contactname: MyString
+  : MyString
+  mobilenumber: MyString
+  : 
+  emailid: MyString
+  : MyString
+  location: MyString
+  : MyString
+  capacity: MyString
+  : MyString
+  cost: MyString
+
+two:
+  VenueName: MyString
+  : MyString
+  contactname: MyString
+  : MyString
+  mobilenumber: MyString
+  : 
+  emailid: MyString
+  : MyString
+  location: MyString
+  : MyString
+  capacity: MyString
+  : MyString
+  cost: MyString
